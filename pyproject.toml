@@ -13,5 +13,8 @@ authors = [
   { name = "Joseph Hamper" }
 ]
 
+[project.scripts]
+punk-prompt-protection = "greco_prompt_guard.cli:main"
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
