@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "Deterministic prompt-injection guard: prompt text is data, not authority."
 readme = "README.md"
 requires-python = ">=3.9"
+license = { text = "MIT" }
 authors = [
   { name = "Joseph Hamper" }
 ]
