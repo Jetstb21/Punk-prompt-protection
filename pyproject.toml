@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "punk-prompt-protection"
+version = "0.1.0"
+description = "Deterministic prompt-injection guard: prompt text is data, not authority."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name = "Joseph Hamper" }
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
