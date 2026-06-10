@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import Dict, List
 
 from .audit import audit_record
+from .greco_signature import compute_greco_signature
 from .patterns import ATTACK_PATTERNS
 
 
@@ -32,7 +33,9 @@ def gate(prompt: str) -> bool:
 
 def check(prompt: str) -> Dict[str, object]:
     verdict = evaluate(prompt)
+    greco = compute_greco_signature(prompt)
     return {
         "verdict": verdict,
+        "greco_signature": greco,
         "audit": audit_record(prompt, verdict),
     }

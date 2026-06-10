@@ -39,12 +39,16 @@ def main() -> int:
                 Path(args.ledger),
                 event_type="PROMPT_CHECK",
                 input_text=args.prompt,
-                decision=result["verdict"],
+                decision={
+                    "verdict": result["verdict"],
+                    "greco_signature": result["greco_signature"],
+                },
                 metadata={"source": "cli"},
             )
             result = {"check": result, "ledger_event": event}
         _print_json(result)
-        return 0 if result.get("check", result)["verdict"]["allowed"] else 1
+        check_result = result.get("check", result)
+        return 0 if check_result["verdict"]["allowed"] else 1
 
     if args.command == "verify-ledger":
         result = verify_ledger_file(Path(args.ledger))
